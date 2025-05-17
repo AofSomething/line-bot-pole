@@ -9,8 +9,8 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
 # ตั้งค่า Flask และ LINE Bot
 app = Flask(__name__)
-line_bot_api = LineBotApi('YOUR_LINE_CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('YOUR_LINE_CHANNEL_SECRET')
+line_bot_api = LineBotApi('NZHEhwr0u8rMyNFB11oR5vW91zs0Nmmnn6ogjsgJXMjiIqgrUyJ3N+wyYn7BaDxo4Sg2N5YV+HicFLABN1lFBSwnLjRqNk4UfuPnLNCa3CH0aNYXXi8TWzxhBZQDWl7YAO582bUH3pKppAl0r0+gvAdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('bfaf94cda0fc4fa34441d55bb78488ed')
 
 # เชื่อมต่อ Google Sheet จาก Environment Variable
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
