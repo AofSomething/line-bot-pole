@@ -9,8 +9,8 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
 # ตั้งค่า Flask และ LINE Bot
 app = Flask(__name__)
-line_bot_api = LineBotApi('NZHEhwr0u8rMyNFB11oR5vW91zs0Nmmnn6ogjsgJXMjiIqgrUyJ3N+wyYn7BaDxo4Sg2N5YV+HicFLABN1lFBSwnLjRqNk4UfuPnLNCa3CH0aNYXXi8TWzxhBZQDWl7YAO582bUH3pKppAl0r0+gvAdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('bfaf94cda0fc4fa34441d55bb78488ed')
+line_bot_api = LineBotApi('YOUR_LINE_CHANNEL_ACCESS_TOKEN')
+handler = WebhookHandler('YOUR_LINE_CHANNEL_SECRET')
 
 # เชื่อมต่อ Google Sheet จาก Environment Variable
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
@@ -68,9 +68,7 @@ def handle_message(event):
         elif phone == bot_b:
             matches.append(f"!{phone} เป็น b_number ของเสา {pole} ตำแหน่ง {scene} คู่สายคือ {a_number} ในช่วงเวลา {start_time} ใช้เวลา {duration} วินาที")
 
-    reply = "
-
-".join(matches) if matches else "ไม่พบข้อมูลค่ะ"
+    reply = "\n\n".join(matches) if matches else "ไม่พบข้อมูลค่ะ"
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply))
 
 if __name__ == "__main__":
